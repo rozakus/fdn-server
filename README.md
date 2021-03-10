@@ -11,12 +11,12 @@
 
 **HOW TO RUN SERVER**
 ```
-1. npx nodemon app.js
+1. npm start
 
 server will run at PORT 3000
 ```
 
 **HOW TO RUN TEST**
 ```
-1. npx nodemon app.js
+1. npm test
 ```
