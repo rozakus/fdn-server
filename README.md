@@ -10,7 +10,7 @@
 
 if (error)
 5. npm db:undo
-re-run from step 2
+re-run from step 2 or check npx sequelize-cli --help
 ```
 
 **HOW TO RUN SERVER**
