@@ -10,7 +10,7 @@
     "db:undo" : "npx sequelize-cli db:migrate:undo:all",
 
     "test": "npx jest --watchAll --detectOpenHandles ",
-    "start" : "node bin/http.js"
+    "start" : "npx nodemon bin/http.js"
   },
   "repository": {
     "type": "git",

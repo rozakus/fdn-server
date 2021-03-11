@@ -3,14 +3,14 @@
 **HOW TO SETUP SERVER**
 ```
 1. npm i
-  (check config/config.json setup postgreSQL username and password)
-2. npm db:create
-3. npm db:migrate
-4. npm db:seed
+2. check and configure config/config.json setup postgreSQL username and password
+3. npm run db:create
+4. npm run db:migrate
+5. npm run db:seed
 
 if (error)
-5. npm db:undo
-re-run from step 2 or check npx sequelize-cli --help
+6. npm run db:undo
+re-run from step 4 or check npx sequelize-cli --help
 ```
 
 **HOW TO RUN SERVER**

@@ -1,16 +1,37 @@
 const { Order, User, Product } = require('../models')
 
 class MainController {
+  static async allProduct(req, res) {
+    try {
+
+      const products = await Product.findAll({
+        order: [['id']],
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+      })
+
+      return res.status(200).json(products)
+
+    } catch (err) {
+      return res.status(500).json(err)
+    }
+  }
+
   static async orderUser(req, res) {
     try {
 
       const orders = await Order.findAll({
         order: [['id']],
         attributes: { exclude: ['createdAt', 'updatedAt'] },
-        include: {
-          model: User,
-          attributes: { exclude: ['createdAt', 'updatedAt', 'password'] }
-        }
+        include: [
+          {
+            model: User,
+            attributes: { exclude: ['createdAt', 'updatedAt', 'password'] }
+          },
+          {
+            model: Product,
+            attributes: { exclude: ['createdAt', 'updatedAt'] }
+          }
+        ]
       })
 
       return res.status(200).json(orders)

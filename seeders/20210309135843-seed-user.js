@@ -16,7 +16,7 @@ module.exports = {
       firstname: 'inaz',
       lastname: 'rabuu',
       email: 'inazrabuu@hotmail.com',
-      password: hashPassword('#Pa55w0rd#'),
+      password: hashPassword('#Pa55w0rd123#'),
       role: 'admin',
       createdAt: new Date (),
       updatedAt: new Date ()
