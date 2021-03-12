@@ -26,13 +26,50 @@ server will run at PORT 3000
 ```
 
 **API**
-| Method | Route  | Description                                               |
-| ------ | ------ | --------------------------------------------------------- |
-| GET    | /order | Get all orders data by user and product                   |
-| GET    | /pivot | Get all orders data by user and product using pivot table |
+| Method | Route   | Description                                               |
+| ------ | ------- | --------------------------------------------------------- |
+| POST   | /login  | Login User                                                |
+| GET    | /orders | Get all orders data by user and product                   |
+| GET    | /pivots | Get all orders data by user and product using pivot table |
 
 ---
-### GET /order
+### POST /login
+---
+> Get all orders data by user and product 
+
+_Request Headers_
+```
+not needed
+```
+
+_Request Body_
+```
+{
+    email: "inazrabuu@hotmail.com",
+    password: '#Pa55w0rd123#'
+}
+```
+
+_Response( 200 )_
+```
+true
+```
+_Response( 400 )_
+```
+Password is invalid
+```
+_Response( 404 )_
+```
+Email not found
+```
+
+_Response ( 500 - Internal Server Error )_
+```
+"internal server error"
+```
+
+---
+### GET /orders
 ---
 > Get all orders data by user and product 
 
@@ -61,6 +98,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user01@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 1,
+            "item": "Skincare",
+            "price": 110000
         }
     },
     {
@@ -75,6 +117,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user01@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 5,
+            "item": "Foundation",
+            "price": 150000
         }
     },
     {
@@ -89,6 +136,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user01@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 10,
+            "item": "Fragrance",
+            "price": 200000
         }
     },
     {
@@ -103,6 +155,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user04@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 2,
+            "item": "Body Lotion",
+            "price": 120000
         }
     },
     {
@@ -117,6 +174,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user04@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 3,
+            "item": "Shampoo",
+            "price": 130000
         }
     },
     {
@@ -131,6 +193,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user04@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 3,
+            "item": "Shampoo",
+            "price": 130000
         }
     },
     {
@@ -145,6 +212,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user06@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 3,
+            "item": "Shampoo",
+            "price": 130000
         }
     },
     {
@@ -159,6 +231,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user06@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 4,
+            "item": "Sun Block",
+            "price": 140000
         }
     },
     {
@@ -173,6 +250,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user06@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 5,
+            "item": "Foundation",
+            "price": 150000
         }
     },
     {
@@ -187,6 +269,11 @@ _Response( 200 )_
             "lastname": "last",
             "email": "user06@hotmail.com",
             "role": "user"
+        },
+        "Product": {
+            "id": 6,
+            "item": "Night Cream",
+            "price": 160000
         }
     }
 ]
@@ -198,7 +285,7 @@ _Response ( 500 - Internal Server Error )_
 ```
 
 ---
-### GET /pivot
+### GET /pivots
 ---
 > Get all orders data by user and product using pivot table
 
@@ -233,15 +320,15 @@ _Response( 200 )_
                 "id": 2,
                 "item": "Body Lotion",
                 "price": 120000,
-                "totalQuantity": 2,
-                "totalPrice": 300000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 5,
-                "totalPrice": 1000000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 4,
@@ -254,8 +341,8 @@ _Response( 200 )_
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 300000
             },
             {
                 "id": 6,
@@ -289,8 +376,8 @@ _Response( 200 )_
                 "id": 10,
                 "item": "Fragrance",
                 "price": 200000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 5,
+                "totalPrice": 1000000
             }
         ]
     },
@@ -312,36 +399,36 @@ _Response( 200 )_
                 "id": 2,
                 "item": "Body Lotion",
                 "price": 120000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 1,
+                "totalPrice": 120000
             },
             {
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 6,
+                "totalPrice": 680000
             },
             {
                 "id": 4,
                 "item": "Sun Block",
                 "price": 140000,
-                "totalQuantity": 1,
-                "totalPrice": 120000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 2,
-                "totalPrice": 260000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 6,
                 "item": "Night Cream",
                 "price": 160000,
-                "totalQuantity": 4,
-                "totalPrice": 420000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 7,
@@ -398,57 +485,57 @@ _Response( 200 )_
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 5,
+                "totalPrice": 650000
             },
             {
                 "id": 4,
                 "item": "Sun Block",
                 "price": 140000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 280000
             },
             {
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 300000
             },
             {
                 "id": 6,
                 "item": "Night Cream",
                 "price": 160000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 3,
+                "totalPrice": 480000
             },
             {
                 "id": 7,
                 "item": "Day Cream",
                 "price": 170000,
-                "totalQuantity": 5,
-                "totalPrice": 650000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 8,
                 "item": "Toner",
                 "price": 180000,
-                "totalQuantity": 2,
-                "totalPrice": 280000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 9,
                 "item": "Lip Balm",
                 "price": 190000,
-                "totalQuantity": 2,
-                "totalPrice": 300000
+                "totalQuantity": 0,
+                "totalPrice": 0
             },
             {
                 "id": 10,
                 "item": "Fragrance",
                 "price": 200000,
-                "totalQuantity": 3,
-                "totalPrice": 480000
+                "totalQuantity": 0,
+                "totalPrice": 0
             }
         ]
     }
