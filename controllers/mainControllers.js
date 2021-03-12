@@ -1,6 +1,34 @@
 const { Order, User, Product } = require('../models')
+const { isPasswordValid } = require('../helpers/password')
 
 class MainController {
+  static async login(req, res) {
+    try {
+      const { email, password } = req.body
+      // console.log(req.body)
+
+      const user = await User.findOne({
+        where: { email }
+      })
+
+      if (!user) { return res.status(404).json('Email not found') }
+      if (user) {
+
+        if (!isPasswordValid(password, user.password)) {
+          return res.status(400).json('Password is invalid')
+        }
+
+        if (isPasswordValid(password, user.password)) {
+          return res.status(200).json(true)
+        }
+
+      }
+
+    } catch (err) {
+      return res.status(500).json(err)
+    }
+  }
+
   static async allProduct(req, res) {
     try {
 
@@ -56,10 +84,10 @@ class MainController {
       const users = await User.findAll({
         order: [['id']],
         attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
-        include: [{
+        include: {
           model: Order,
           attributes: { exclude: ['createdAt', 'updatedAt'] }
-        }]
+        }
       })
 
       const totals = users.filter(user => user.Orders.length !== 0)
@@ -76,7 +104,7 @@ class MainController {
             let totalPrice = 0
 
             total.Orders.map(order => {
-              if (order.id === product.id) {
+              if (order.ProductId === product.id) {
                 totalQuantity += order.quantity
                 totalPrice += order.total_price
               }

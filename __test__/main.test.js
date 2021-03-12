@@ -1,10 +1,10 @@
 const request = require('supertest')
 const app = require('../app')
 
-describe('GET /order', () => {
+describe('GET /orders', () => {
   it('Status Code 200', (done) => {
     request(app)
-      .get('/order')
+      .get('/orders')
       .end((err, res) => {
         if (err) done(err)
 
@@ -22,6 +22,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user01@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 1,
+              "item": "Skincare",
+              "price": 110000
             }
           },
           {
@@ -36,6 +41,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user01@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 5,
+              "item": "Foundation",
+              "price": 150000
             }
           },
           {
@@ -50,6 +60,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user01@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 10,
+              "item": "Fragrance",
+              "price": 200000
             }
           },
           {
@@ -64,6 +79,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user04@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 2,
+              "item": "Body Lotion",
+              "price": 120000
             }
           },
           {
@@ -78,6 +98,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user04@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 3,
+              "item": "Shampoo",
+              "price": 130000
             }
           },
           {
@@ -92,6 +117,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user04@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 3,
+              "item": "Shampoo",
+              "price": 130000
             }
           },
           {
@@ -106,6 +136,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user06@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 3,
+              "item": "Shampoo",
+              "price": 130000
             }
           },
           {
@@ -120,6 +155,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user06@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 4,
+              "item": "Sun Block",
+              "price": 140000
             }
           },
           {
@@ -134,6 +174,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user06@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 5,
+              "item": "Foundation",
+              "price": 150000
             }
           },
           {
@@ -148,6 +193,11 @@ describe('GET /order', () => {
               "lastname": "last",
               "email": "user06@hotmail.com",
               "role": "user"
+            },
+            "Product": {
+              "id": 6,
+              "item": "Night Cream",
+              "price": 160000
             }
           }
         ])
@@ -157,10 +207,10 @@ describe('GET /order', () => {
   })
 })
 
-describe('GET /pivot', () => {
+describe('GET /pivots', () => {
   it('Status Code 200', (done) => {
     request(app)
-      .get('/pivot')
+      .get('/pivots')
       .end((err, res) => {
         if (err) done(err)
 
@@ -184,15 +234,15 @@ describe('GET /pivot', () => {
                 "id": 2,
                 "item": "Body Lotion",
                 "price": 120000,
-                "totalQuantity": 2,
-                "totalPrice": 300000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 5,
-                "totalPrice": 1000000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 4,
@@ -205,8 +255,8 @@ describe('GET /pivot', () => {
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 300000
               },
               {
                 "id": 6,
@@ -240,8 +290,8 @@ describe('GET /pivot', () => {
                 "id": 10,
                 "item": "Fragrance",
                 "price": 200000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 5,
+                "totalPrice": 1000000
               }
             ]
           },
@@ -263,36 +313,36 @@ describe('GET /pivot', () => {
                 "id": 2,
                 "item": "Body Lotion",
                 "price": 120000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 1,
+                "totalPrice": 120000
               },
               {
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 6,
+                "totalPrice": 680000
               },
               {
                 "id": 4,
                 "item": "Sun Block",
                 "price": 140000,
-                "totalQuantity": 1,
-                "totalPrice": 120000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 2,
-                "totalPrice": 260000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 6,
                 "item": "Night Cream",
                 "price": 160000,
-                "totalQuantity": 4,
-                "totalPrice": 420000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 7,
@@ -349,57 +399,57 @@ describe('GET /pivot', () => {
                 "id": 3,
                 "item": "Shampoo",
                 "price": 130000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 5,
+                "totalPrice": 650000
               },
               {
                 "id": 4,
                 "item": "Sun Block",
                 "price": 140000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 280000
               },
               {
                 "id": 5,
                 "item": "Foundation",
                 "price": 150000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 2,
+                "totalPrice": 300000
               },
               {
                 "id": 6,
                 "item": "Night Cream",
                 "price": 160000,
-                "totalQuantity": 0,
-                "totalPrice": 0
+                "totalQuantity": 3,
+                "totalPrice": 480000
               },
               {
                 "id": 7,
                 "item": "Day Cream",
                 "price": 170000,
-                "totalQuantity": 5,
-                "totalPrice": 650000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 8,
                 "item": "Toner",
                 "price": 180000,
-                "totalQuantity": 2,
-                "totalPrice": 280000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 9,
                 "item": "Lip Balm",
                 "price": 190000,
-                "totalQuantity": 2,
-                "totalPrice": 300000
+                "totalQuantity": 0,
+                "totalPrice": 0
               },
               {
                 "id": 10,
                 "item": "Fragrance",
                 "price": 200000,
-                "totalQuantity": 3,
-                "totalPrice": 480000
+                "totalQuantity": 0,
+                "totalPrice": 0
               }
             ]
           }

@@ -7,8 +7,8 @@ function hashPassword(input) {
   return hashedPassword
 }
 
-function isPasswordValid(dbPassword, inputPassword) {
-  bcrypt.compareSync(dbPassword, inputPassword)
+function isPasswordValid(inputPassword, dbPassword) {
+  return bcrypt.compareSync(inputPassword, dbPassword)
 }
 
 module.exports = {
